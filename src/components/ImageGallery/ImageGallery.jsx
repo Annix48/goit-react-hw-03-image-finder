@@ -1,28 +1,23 @@
-import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
-import s from './ImageGallery.module.css';
-import PropTypes from 'prop-types';
+import { ImageGalleryItem } from '../ImageGalleryItem/ImageGalleryItem';
+import style from './ImageGallery.module.css';
 
-export default function ImageGallery({ images, openModal }) {
+export const ImageGallery = ({
+  images,
+  handleModalImage,
+  handleModalAlt,
+  showModal,
+}) => {
   return (
-    <ul className={s.ImageGallery}>
-      {images.map(({ id, webformatURL }, index) => (
+    <section>
+      <h2 className="visually-hidden">gallery section</h2>
+      <ul className={style.ImageGallery}>
         <ImageGalleryItem
-          key={id}
-          webformatURL={webformatURL}
-          index={index}
-          openModal={openModal}
+          images={images}
+          handleModalImage={handleModalImage}
+          handleModalAlt={handleModalAlt}
+          showModal={showModal}
         />
-      ))}
-    </ul>
+      </ul>
+    </section>
   );
-}
-
-ImageGallery.propTypes = {
-  openModal: PropTypes.func.isRequired,
-  images: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      webformatURL: PropTypes.string.isRequired,
-    })
-  ),
 };

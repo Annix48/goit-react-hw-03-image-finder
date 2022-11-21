@@ -1,10 +1,9 @@
 import { ColorRing } from 'react-loader-spinner';
+import style from './Loader.module.css';
 
-import s from './Loader.module.css';
-
-export default function Loader() {
+export const Loader = () => {
   return (
-    <div className={s.overlay}>
+    <section className={style.SectionLoader}>
       <ColorRing
         visible={true}
         height="80"
@@ -14,6 +13,6 @@ export default function Loader() {
         wrapperClass="blocks-wrapper"
         colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
       />
-    </div>
+    </section>
   );
-}
+};
