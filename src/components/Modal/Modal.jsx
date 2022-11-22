@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { createPortal } from 'react-dom';
 import style from './Modal.module.css';
 
-const modalRoot = document.querySelector('#modal-root');
+const modalRoot = document.querySelector('#modalRoot');
 
 export default class Modal extends Component {
   componentDidMount() {
@@ -15,13 +15,13 @@ export default class Modal extends Component {
 
   handleKeyDown = e => {
     if (e.code === 'Escape') {
-      this.props.onModalClick();
+      return this.props.onClose();
     }
   };
 
   handleBackdropClick = e => {
     if (e.target === e.currentTarget) {
-      this.props.onModalClick();
+      return this.props.onModalClick();
     }
   };
 
